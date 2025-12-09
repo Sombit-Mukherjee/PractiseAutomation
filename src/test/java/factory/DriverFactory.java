@@ -22,7 +22,7 @@ public class DriverFactory {
             tlDriver.set(new EdgeDriver());
         }
         else {
-            System.out.println("Please apass the correct browser " + browser);
+            System.out.println("Please pass the correct browser " + browser);
         }
         getDriver().manage().deleteAllCookies();
         getDriver().manage().window().maximize();

@@ -20,4 +20,15 @@ public class ConfigReader {
         }
         return prop;
     }
+
+    public String getProperties(String key){
+        if (prop == null){
+            init_prop();
+        }
+        String value = prop.getProperty(key);
+        if (value == null){
+            throw new RuntimeException("Property with key"+ key+ "not found");
+        }
+        return value;
+    }
 }
