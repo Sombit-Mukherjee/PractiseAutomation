@@ -16,6 +16,8 @@ import java.time.Duration;
 
 public class LoginSteps {
 
+    ConfigReader cr = new ConfigReader();
+
     private LoginPage lp = new LoginPage(DriverFactory.getDriver());
 
    @Given("user is in the login page")
@@ -26,17 +28,18 @@ public class LoginSteps {
 
     @When("user adds valid credentials")
     public void user_adds_valid_credentials(){
-        lp.enterEmail("Test@123.gmail.com");
-        lp.enterPassword("Test@1234");
+       String validEmail = cr.getProperties("validEm1");
+       String validPassword = cr.getProperties("validPass1");
+        lp.enterEmail(validEmail);
+        lp.enterPassword(validPassword);
     }
 
-    @When("user adds invalid credentials")
-    public void user_adds_invalid_credentials(){
-       ConfigReader cr = new ConfigReader();
-       String invalidEmail = cr.getProperties("email2");
-       String invalidPassword = cr.getProperties("password2");
-       lp.enterEmail(invalidEmail);
-       lp.enterPassword(invalidPassword);
+    @When("user adds invalid {string} and {string} credentials")
+    public void user_adds_invalid_credentials(String username, String password){
+       //String invalidEmail = cr.getProperties("email2");
+       //String invalidPassword = cr.getProperties("password2");
+       lp.enterEmail(username);
+       lp.enterPassword(password);
 
     }
     @And("clicks login button")
@@ -50,12 +53,14 @@ public class LoginSteps {
         Assert.assertTrue("User login failed",verify);
     }
 
-    @Then("user can see error message")
-    public void user_can_see_error_message(){
-       String expectederror = "Your email or password is incorrect!";
+    @Then("user can see {string} message")
+    public void user_can_see_error_message(String expectedError){
+       //String expectederror = "Your email or password is incorrect!";
+
+       Assert.assertTrue("The message is not displayed",lp.isErrorMessageDisplayed());
        String actualError = lp.getErrorMessageText();
-       Assert.assertEquals("The displayed error message is different.",expectederror,actualError);
-       Assert.assertTrue("The message is not displayed", lp.isErrorMessageDisplayed());
+       Assert.assertEquals("The displayed error message is different.",expectedError,actualError);
+
 
     }
 

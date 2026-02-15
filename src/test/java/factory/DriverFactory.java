@@ -3,13 +3,10 @@ package factory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-
 import java.time.Duration;
 
-import static java.sql.DriverManager.getDriver;
 
 public class DriverFactory {
-    WebDriver driver;
 
     public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
@@ -26,8 +23,11 @@ public class DriverFactory {
         }
         getDriver().manage().deleteAllCookies();
         getDriver().manage().window().maximize();
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         return getDriver();
+    }
+    public static void unloadDriver(){
+        tlDriver.remove();
     }
 
     public static synchronized WebDriver getDriver(){
