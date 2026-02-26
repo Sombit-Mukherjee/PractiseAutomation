@@ -32,4 +32,16 @@ public class ConfigReader {
         }
         return value;
     }
+
+    public String getEnv() {
+        String env = getProperties("env");
+        if (env.equalsIgnoreCase("qa")) {
+
+            return getProperties("qa_url");
+        } else if (env.equalsIgnoreCase("dev")) {
+            return getProperties("dev_url");
+        } else {
+            throw new RuntimeException("env not supported: " + env);
+        }
+    }
 }

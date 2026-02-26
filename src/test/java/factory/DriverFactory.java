@@ -2,6 +2,7 @@ package factory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import java.time.Duration;
 
@@ -14,7 +15,9 @@ public class DriverFactory {
         System.out.println("The browser is : " + browser);
 
         if (browser.equals("chrome")){
-            tlDriver.set(new ChromeDriver());
+           // ChromeOptions options = new ChromeOptions();// for headless mode
+           // options.addArguments("--headless"); // for headless mode
+            tlDriver.set(new ChromeDriver());  // remove options if not headless mode - vice versa
         } else if (browser.equals("edge")) {
             tlDriver.set(new EdgeDriver());
         }

@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Feb 14, 2026 07:34:44 pm</span></a>
+<a href="#"><span class="badge badge-primary">Feb 27, 2026 01:32:16 am</span></a>
 </li>
 </ul>
 </div>
@@ -84,7 +84,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@Register</a>
+<a class="dropdown-item" href="#">@RunThis</a>
 </ul>
 </li>
 </ul>
@@ -95,9 +95,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Register User</p>
+            <p class="name">Account login</p>
             <p class="text-sm">
-              <span>7:34:44 pm</span> / <span>00:00:19:962</span>
+              <span>1:32:17 am</span> / <span>00:00:21:886</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -105,10 +105,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">Register User</h5>
-<span class='badge badge-success'>02.14.2026 7:34:44 pm</span>
-<span class='badge badge-danger'>02.14.2026 7:35:04 pm</span>
-<span class='badge badge-default'>00:00:19:962</span>
+<h5 class="test-status text-fail">Account login</h5>
+<span class='badge badge-success'>02.27.2026 1:32:17 am</span>
+<span class='badge badge-danger'>02.27.2026 1:32:39 am</span>
+<span class='badge badge-default'>00:00:21:886</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -121,80 +121,89 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>User registration</div>
+        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>Successful login with DDT</div>
           <div class="status-avatar float-right mr-4">
             <i class="fa fa-paperclip"></i>
           </div>
       </div>
     </div>
-        <div class="">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepDefinitions.UserRegistration.when_user_in_register_page()">
-                <span>Given when user in register page</span>
+        <div class="scenario_outline ">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>Successful login with DDT</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user is in the login page</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="stepDefinitions.UserRegistration.user_adds_valid_name_and_email()">
-                <span>When user adds valid name and email</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user adds valid credentials from sheet "LoginData" and row 1</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="stepDefinitions.UserRegistration.user_clicks_on_sign_up_button()">
-                <span>And user clicks on sign up button</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And clicks login button</span>
       <div>
       </div>
-              </div>
-              <div class="step fail-bg" title="stepDefinitions.UserRegistration.user_should_see_the_Additional_Info_section()">
-                <span>Then user should see the Additional Info section</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then user is redirected to home page</span>
       <div>
-        <textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //b[text() = 'Enter Account Information'] (tried for 10 second(s) with 500 milliseconds interval)
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="4"><span class="badge log fail-bg mr-2">Fail</span>Successful login with DDT</div>
+                    <div class="status-avatar float-right">
+                      <i class="fa fa-paperclip"></i>
+                    </div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given user is in the login page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user adds valid credentials from sheet "LoginData" and row 2</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And clicks login button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>Then user is redirected to home page</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //a[contains(.,'Logged in as')] (tried for 10 second(s) with 500 milliseconds interval)
 Build info: version: '4.15.0', revision: '1d14b5521b'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.17'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\sombi\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63852}, goog:processID: 21932, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63852/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 80a86d15d7d2b1009abcb3b7f0b7fa00
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\sombi\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59539}, goog:processID: 10628, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59539/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 37e7fbf7d9a842a12e4ac5ce1aaf8a5d
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
 	at utils.BaseClass.getElement(BaseClass.java:26)
-	at pages.RegistrationPage.isAccountInfoPageDisplayed(RegistrationPage.java:62)
-	at stepDefinitions.UserRegistration.user_should_see_the_Additional_Info_section(UserRegistration.java:44)
-	at ✽.user should see the Additional Info section(file:///C:/Users/sombi/IdeaProject/PractiseAutomation/src/test/resources/feature/register.feature:7)
+	at pages.LoginPage.isuserloggedin(LoginPage.java:41)
+	at stepDefinitions.LoginSteps.user_is_redirected_to_home_page(LoginSteps.java:69)
+	at ✽.user is redirected to home page(file:///C:/Users/sombi/IdeaProject/PractiseAutomation/src/test/resources/feature/login.feature:25)
 </textarea>
       
       </div>
-              </div>
-              <div class="step skip-bg" title="stepDefinitions.UserRegistration.user_adds_following_account_information_details(io.cucumber.datatable.DataTable)">
-                <span>When user adds following account information details:</span>
-      <div><table class='markup-table table '><tr><td>Title</td><td>Password</td><td>Day</td><td>Month</td><td>Year</td></tr><tr><td>Mr</td><td>Admin@123</td><td>2</td><td>December</td><td>1991</td></tr></table>
-      </div>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="stepDefinitions.UserRegistration.use_select_the_newsletters_and_offers_checkboxes()">
-                <span>And user select the newsletters and offers checkboxes</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="stepDefinitions.UserRegistration.user_fill_in_the_address_information(io.cucumber.datatable.DataTable)">
-                <span>And user fill in the address information:</span>
-      <div><table class='markup-table table '><tr><td>FirstName</td><td>LastName</td><td>Company</td><td>Address</td><td>Country</td><td>State</td><td>City</td><td>Zipcode</td><td>Mobile</td></tr><tr><td>John</td><td>Doe</td><td>ABC Ltd</td><td>123 Main Street</td><td>United States</td><td>NY</td><td>Albany</td><td>12201</td><td>1234567890</td></tr></table>
-      </div>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="stepDefinitions.UserRegistration.user_click_the_Create_Account_button()">
-                <span>And user click the Create Account button</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="stepDefinitions.UserRegistration.user_should_see_Account_Created_message()">
-                <span>Then user should see Account Created message</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step pass-bg" title="AFTER">
-                <span>stepDefinitions.ApplicationHooks.teardown(io.cucumber.java.Scenario)</span>
-      <div>User_registration
+                  </div>
+                  <div class="step pass-bg">
+                    <span>stepDefinitions.ApplicationHooks.teardown(io.cucumber.java.Scenario)</span>
+      <div>Successful_login_with_DDT
           <div class="row mb-3"><div class="col-md-3">
 <img data-featherlight='test-output/embedded1.png' src="test-output/embedded1.png">
     
@@ -202,8 +211,9 @@ Session ID: 80a86d15d7d2b1009abcb3b7f0b7fa00
 </div>
       <div>
       </div>
+                  </div>
               </div>
-          </div>
+            </div>
         </div>
   </div>
 </div>
@@ -250,11 +260,11 @@ Session ID: 80a86d15d7d2b1009abcb3b7f0b7fa00
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>19:34:54 pm</td>
+<td>01:32:28 am</td>
 <td>
-<a href="#" class="linked" test-id='1' id='8'>Then user should see the Additional Info section</a>
+<a href="#" class="linked" test-id='1' id='18'>Then user is redirected to home page</a>
 <div class="">
-<span class="badge badge-default">Register User.User registration.Then user should see the Additional Info section</span>
+<span class="badge badge-default">Account login.Successful login with DDT.Then user is redirected to home page</span>
 </div>
 </td>
 </tr>
@@ -281,14 +291,16 @@ Session ID: 80a86d15d7d2b1009abcb3b7f0b7fa00
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
+<span class='badge log pass-bg'>1</span>
 <span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">@Register</p>
-<p class="duration text-sm">1 tests</p>
+<p class="name">@RunThis</p>
+<p class="duration text-sm">2 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@Register</h4>
+<h4>@RunThis</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
 <span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -300,13 +312,23 @@ Session ID: 80a86d15d7d2b1009abcb3b7f0b7fa00
 </tr>
 </thead>
 <tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:32:17 am</td>
+<td>
+<a href="#" class="linked" test-id='1' id='3'>Successful login with DDT</a>
+<div class="">
+<span class="badge badge-default">Account login.Successful login with DDT</span>
+</div>
+</td>
+</tr>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>19:34:44 pm</td>
+<td>01:32:17 am</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>User registration</a>
+<a href="#" class="linked" test-id='1' id='4'>Successful login with DDT</a>
 <div class="">
-<span class="badge badge-default">Register User.User registration</span>
+<span class="badge badge-default">Account login.Successful login with DDT</span>
 </div>
 </td>
 </tr>
@@ -327,13 +349,13 @@ Session ID: 80a86d15d7d2b1009abcb3b7f0b7fa00
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Feb 14, 2026 07:34:44 pm</h3>
+<h3>Feb 27, 2026 01:32:16 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Feb 14, 2026 07:35:04 pm</h3>
+<h3>Feb 27, 2026 01:32:39 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -384,9 +406,9 @@ Session ID: 80a86d15d7d2b1009abcb3b7f0b7fa00
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'><b>0</b> scenarios passed</small></div>
+<div><small data-tooltip='50%'><b>1</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='100%'><b>1</b> scenarios failed,
+<small data-tooltip='50%'><b>1</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -404,10 +426,10 @@ Session ID: 80a86d15d7d2b1009abcb3b7f0b7fa00
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='40%'><b>4</b> steps passed</small></div>
+<div><small data-tooltip='88%'><b>8</b> steps passed</small></div>
 <div>
-<small data-tooltip='10%'><b>1</b> steps failed,
-<b>5</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='11%'><b>1</b> steps failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -423,7 +445,7 @@ Session ID: 80a86d15d7d2b1009abcb3b7f0b7fa00
 </div></div>
 <script>
 var timeline = {
-"Register User":19.962
+"Account login":21.886
 };
 </script>
 <div class="row">
@@ -433,12 +455,12 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@Register</td>
-<td>0</td>
+<td>@RunThis</td>
+<td>1</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0%</td>
+<td>50%</td>
 </tr>
 </tbody>
 </table></div>
@@ -454,16 +476,16 @@ failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 0,
+passChild: 1,
 failChild: 1,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 4,
+passGrandChild: 8,
 failGrandChild: 1,
 warningGrandChild: 0,
-skipGrandChild: 5,
+skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
 };

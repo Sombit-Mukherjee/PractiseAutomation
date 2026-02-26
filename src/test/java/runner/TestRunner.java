@@ -9,9 +9,9 @@ import org.testng.annotations.DataProvider;
 
 //@RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/feature/register.feature",
+        features = "src/test/resources/feature/login.feature",
         glue = "stepDefinitions",
-        tags = "@Register",
+        tags = "@RunThis",
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports.html",

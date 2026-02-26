@@ -12,7 +12,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
 import utils.ConfigReader;
 
+import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 public class LoginSteps {
 
@@ -22,7 +25,7 @@ public class LoginSteps {
 
    @Given("user is in the login page")
    public void user_is_in_the_login_page(){
-        DriverFactory.getDriver().get(new ConfigReader().init_prop().getProperty("url"));
+        DriverFactory.getDriver().get(new ConfigReader().getEnv());
 
    }
 
@@ -42,6 +45,20 @@ public class LoginSteps {
        lp.enterPassword(password);
 
     }
+
+    @When("user adds valid credentials from sheet {string} and row {int}")
+    public void user_adds_valid_credentials_from_sheet_and_row(String sheetName, Integer rowNumber) throws IOException {
+
+       utils.ExcelReader reader = new utils.ExcelReader();
+       List<Map<String, String>> testData = reader.getData("src/test/resources/testdata/Logindata.xlsx", sheetName);
+       String username = testData.get(rowNumber).get("username");
+       String password = testData.get(rowNumber).get("password");
+
+       lp.enterEmail(username);
+       lp.enterPassword(password);
+    }
+
+
     @And("clicks login button")
     public void clicks_login_button(){
         lp.clickButton();
